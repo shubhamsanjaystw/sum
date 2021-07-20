@@ -1,8 +1,8 @@
 import time
 import timeit
 import sys
-sys.stdin = open('input.txt', 'r')
-sys.stdout = open('output.txt', 'w')
+# sys.stdin = open('input.txt', 'r')
+# sys.stdout = open('output.txt', 'w')
 
 
 # power_sum calcutates sum of random no of arguments with various data type
