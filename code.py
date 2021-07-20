@@ -1,25 +1,20 @@
-import time
 import timeit
-import sys
-# sys.stdin = open('input.txt', 'r')
-# sys.stdout = open('output.txt', 'w')
-
 
 # power_sum calcutates sum of random no of arguments with various data type
 
-
 def power_sum(*args):
-    sum = 0              # sum variable stores the value of addition till the current iterator
-    for arg in args:     # calling golbal_sum function with argument as sum till now and the new arguments that neend to be added
-        sum = sum_global(sum, arg)     # store this returned value in sum
+    # sum variable stores the value of addition till the current iterator
+    sum = 0
+    for arg in args:                    # calling golbal_sum function with argument as sum till now and the new arguments that neend to be added
+        sum = sum_global(sum, arg)      # store this returned value in sum
     return sum
+
 
 # sum_golbal calculates the sum of two values a and b where a and b could be int, list, dict
 
-
 def sum_global(a, b):
     sum = 0
-    if type(a) == list:  # checks if a is list then runs the loop to add up all elements of list to sum
+    if type(a) == list:    # checks if a is list then runs the loop to add up all elements of list to sum
         for i in a:
             sum += i
     elif type(a) == dict:  # checks if a is dict then runs the loop to add up all values in key-value pair of dict to sum
@@ -37,7 +32,7 @@ def sum_global(a, b):
     else:
         sum += b
 
-    return sum     # return sum of a and b (irrespective of data type)
+    return sum            # return sum of a and b (irrespective of data type)
 
 
 print("sum_global function on integers")
@@ -68,9 +63,8 @@ print()
 
 
 # # Section 4: sum Function with random no of arguments of any data type
-
-
 print("power_sum function on n number of argument and different data type")
+
 # # sub section 1: Create test cases
 # test case
 print(True if power_sum([1, 2], 2, {"a": 1, "b": 2}) == 8 else False)
@@ -82,26 +76,27 @@ print(True if power_sum([1, 2], {"a": 2, "b": 3}, {
       "a": 1, "b": 2}) == 11 else False)
 print()
 
-# # sub section 2: think an approach
+# sub section 2: think an approach
 # 1) Create a function Power_sum which takes * argvs as arguments
 # 2) Create a variable sum which holds the sum till the iterator
 # 3) For every arg in argvs call function global_sum with sum till now and current arg
 # 4) Store the value of global_sum in sum denoting the sum till now
 # 5) finally return sum
 
-
 # sub section 3: implementation
 # line NO. 6
 
 print()
-
 # Benchmark of our power_sum() function on inbuilt sum() function of python
 # performing generat addition of integers on input size of 15000
 print("Benchmark power_sum function and sum function of python module:-")
 
 # Running time test on sum()
 
-sum_speed = timeit.timeit('''l = [i for i in range(15000)]
+# timeit.timeit function takes two argument :-
+# 1) Code snippet whose run time is to be recorded
+# 2) number implies number of times the test has to be performed on input set
+sum_speed = timeit.timeit('''l = [i for i in range(15000)]                  
 
 sum(l)''', number=1)
 
